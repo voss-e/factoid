@@ -8,6 +8,7 @@ const app = express()
 // Import routes
 
 const factRoutes = require('./api/routes/facts.js')
+const userRoutes = require('./api/routes/user.js')
 
 
 mongoose.connect(`mongodb://vosse:${process.env.MONGO_ATLAS_PW}@ds211648.mlab.com:11648/factoid`, {
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
 
 
 app.use('/facts', factRoutes)
+app.use('/user', userRoutes)
 
 
 port = process.env.PORT || 3000

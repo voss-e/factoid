@@ -9,7 +9,7 @@ const User = require('../models/user')
 
 // @desc POST route for singing up
 
-route.post('/signup', (req, res, next) => {
+router.post('/signup', (req, res, next) => {
   User.find({ email: req.body.email })
   .exec()
   .then( user => {
@@ -88,6 +88,7 @@ router.post('/login', (req, res, next) => {
         {
           expiresIn: "1h"
         })
+        // gg
         return res.status(200).json({
           message: 'Auth successful',
           token: token
@@ -122,3 +123,6 @@ router.delete('/:userId', (req, res, next) => {
     })
   })
 })
+
+
+module.exports = router
